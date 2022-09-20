@@ -1,3 +1,5 @@
+// this is allan's comment 
+
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import "@tensorflow/tfjs-react-native";
