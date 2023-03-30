@@ -132,7 +132,7 @@ export default function App() {
         let keypoints = poses[0].keypoints;
         keypoints.push(poseOption.value);
         let temp = [frameCount, keypoints];
-        frameData.push(temp);
+        frameData.push(keypoints);
         frameCount++;
       }
       const keypoints = poses[0].keypoints
@@ -305,6 +305,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     zIndex: 1,
+    bottom: 100,
   },
   fpsContainer: {
     position: "absolute",
