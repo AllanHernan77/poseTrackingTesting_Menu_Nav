@@ -37,6 +37,7 @@ export default function FirstScreen() {
   const [selectedPoseButton, setSelectedPoseButton] = React.useState(""); // poses for JJ or Squat
 
   const goTest = () => {
+    console.log(isCountPose)
     if (
       (selectedPoseButton === "JJTOP" ||
         selectedPoseButton === "JJMIDDLE" ||
@@ -49,6 +50,9 @@ export default function FirstScreen() {
       selectedActionButton === "Squats"
     ) {
       navigation.navigate("Squats");
+    }
+    else if( selectedPoseButton === "JJCOUNTPOSE" || selectedPoseButton === "SQCOUNTPOSE"){
+      navigation.navigate("Counter");
     }
   };
   const trainData = () => {
@@ -235,6 +239,11 @@ export default function FirstScreen() {
                   value="JJBOTTOM"
                   labelStyle={styles.radio_style}
                 />
+                <RadioButton.Item
+                  label="Count Jumping Jack Pose"
+                  value="JJCOUNTPOSE"
+                  labelStyle={styles.radio_style}
+                />
                 <View style={styles.radio_line} />
               </View>
             </RadioButton.Group>
@@ -268,9 +277,15 @@ export default function FirstScreen() {
                   value="SQBOTTOM"
                   labelStyle={styles.radio_style}
                 />
-                <View style={styles.radio_line} />
+                <RadioButton.Item
+                  label="Count Squat Pose"
+                  value="SQCOUNTPOSE"
+                  labelStyle={styles.radio_style}
+                />
+              <View style={styles.radio_line} />
               </View>
             </RadioButton.Group>
+            
           </Animated.View>
         </View>
       )}
@@ -403,5 +418,16 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     flex: 1,
+  },
+  pose_button_pos: {
+    position: "relative",
+    width: 30
+  },
+
+  poseButtonText: { 
+    justifyContent : "center",
+    textAlign : "left",
+      
+    
   },
 });
